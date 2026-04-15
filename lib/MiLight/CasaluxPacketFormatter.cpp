@@ -44,8 +44,9 @@ void CasaluxPacketFormatter::initializePacket(uint8_t* packet) {
 void CasaluxPacketFormatter::finalizePacket(uint8_t* packet) {
   uint16_t checksum;
 
-  // Calculate checksum over packet length .. sequenceNum
-  checksum = packetLength; // Packet length is not part of packet
+  // Calculate checksum over packet
+  checksum = 0; // Packet length is not part of packet
+  
   for (uint8_t i = 0; i < packetLength; i++) {
     checksum += currentPacket[i];
   }
